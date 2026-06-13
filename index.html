@@ -146,82 +146,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Interactive Course Roadmap / Timeline -->
-            <div class="p-6 rounded-2xl glass-panel space-y-4">
-                <div class="flex items-center justify-between border-b border-slate-700/50 pb-3">
-                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-map-location-dot text-gold-500"></i> Curriculum Milestones (20 Sessions)
-                    </h3>
-                    <span class="text-xs text-slate-400">Click headers to expand</span>
-                </div>
-                
-                <div class="space-y-3" id="timeline-accordion">
-                    <!-- Week 1: Foundation -->
-                    <div class="border border-slate-700/50 rounded-xl overflow-hidden transition-all bg-navy-800/30">
-                        <button onclick="toggleAccordion(0)" class="w-full text-left p-4 flex justify-between items-center hover:bg-navy-800/50 transition">
-                            <span class="font-bold text-sm sm:text-base text-gold-400">Phase 1: Diagnostic & Textual Analysis (Sessions 1-5)</span>
-                            <i id="icon-0" class="fa-solid fa-chevron-up text-xs text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="content-0" class="p-4 pt-0 text-xs sm:text-sm text-slate-300 border-t border-slate-700/20 space-y-2">
-                            <p><strong>Core Focus:</strong> Structural understanding of non-fiction texts, understanding explicit and implicit meanings, vocabulary expansion strategies, and short answer techniques.</p>
-                            <ul class="list-disc pl-5 space-y-1 text-slate-400">
-                                <li>Scanning for details and paraphrasing quickly.</li>
-                                <li>Mastering the art of single-word selection and contextual definition.</li>
-                                <li>Comprehensive review of the active & passive voice matrices.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Week 2: Intermediate Summary -->
-                    <div class="border border-slate-700/50 rounded-xl overflow-hidden transition-all bg-navy-800/30">
-                        <button onclick="toggleAccordion(1)" class="w-full text-left p-4 flex justify-between items-center hover:bg-navy-800/50 transition">
-                            <span class="font-bold text-sm sm:text-base text-slate-300">Phase 2: Advanced Summary Writing (Sessions 6-10)</span>
-                            <i id="icon-1" class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="content-1" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-300 border-t border-slate-700/20 space-y-2">
-                            <p><strong>Core Focus:</strong> Eliminating redundancy, aligning points to prompts, structural transitions, and scoring maximum marks for organization and grammatical accuracy.</p>
-                            <ul class="list-disc pl-5 space-y-1 text-slate-400">
-                                <li>Formulating high-level logical links and discourse markers.</li>
-                                <li>Converting raw input details into 100-120 words of cohesive English.</li>
-                                <li>Practicing with actual Cambridge mark schemes to dissect past examiners' expectations.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Week 3: Creative / Formal Writing -->
-                    <div class="border border-slate-700/50 rounded-xl overflow-hidden transition-all bg-navy-800/30">
-                        <button onclick="toggleAccordion(2)" class="w-full text-left p-4 flex justify-between items-center hover:bg-navy-800/50 transition">
-                            <span class="font-bold text-sm sm:text-base text-slate-300">Phase 3: Direct Writing & Speaking Mechanics (Sessions 11-15)</span>
-                            <i id="icon-2" class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="content-2" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-300 border-t border-slate-700/20 space-y-2">
-                            <p><strong>Core Focus:</strong> Professional letter writing, email crafting, reports, journals, and target-audience tailoring.</p>
-                            <ul class="list-disc pl-5 space-y-1 text-slate-400">
-                                <li>Formulating compelling introductions and conclusions.</li>
-                                <li>Adapting formal vs. informal registers flawlessly.</li>
-                                <li>Speaking assessments preview & listening accuracy exercises (Crucial for 0511 / 0991 components).</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Week 4: Final Mock Run -->
-                    <div class="border border-slate-700/50 rounded-xl overflow-hidden transition-all bg-navy-800/30">
-                        <button onclick="toggleAccordion(3)" class="w-full text-left p-4 flex justify-between items-center hover:bg-navy-800/50 transition">
-                            <span class="font-bold text-sm sm:text-base text-slate-300">Phase 4: Intensive Mock Drills & Review (Sessions 16-20)</span>
-                            <i id="icon-3" class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
-                        </button>
-                        <div id="content-3" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-300 border-t border-slate-700/20 space-y-2">
-                            <p><strong>Core Focus:</strong> Real exam condition testing, individual evaluation, structural diagnostics, and targeted feedback.</p>
-                            <ul class="list-disc pl-5 space-y-1 text-slate-400">
-                                <li>Complete timed exam simulations with strict proctoring guidelines.</li>
-                                <li>Personal performance index mapping to identify individual pain points.</li>
-                                <li>Ultimate cheat-sheet strategies for the official Cambridge examination day.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- Right Column: Registration Form & Pricing Simulator (5 Columns) -->
@@ -479,37 +403,6 @@
         // Initialize and interval timer
         updateCountdown();
         setInterval(updateCountdown, 1000);
-
-        // Timeline Accordion Action
-        function toggleAccordion(index) {
-            const keys = [0, 1, 2, 3];
-            keys.forEach(key => {
-                const content = document.getElementById(`content-${key}`);
-                const icon = document.getElementById(`icon-${key}`);
-                const button = content.previousElementSibling;
-                const textSpan = button.querySelector('span');
-
-                if (key === index) {
-                    const isCollapsed = content.classList.contains('hidden');
-                    if (isCollapsed) {
-                        content.classList.remove('hidden');
-                        icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
-                        textSpan.classList.add('text-gold-400');
-                        textSpan.classList.remove('text-slate-300');
-                    } else {
-                        content.classList.add('hidden');
-                        icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
-                        textSpan.classList.remove('text-gold-400');
-                        textSpan.classList.add('text-slate-300');
-                    }
-                } else {
-                    content.classList.add('hidden');
-                    icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
-                    textSpan.classList.remove('text-gold-400');
-                    textSpan.classList.add('text-slate-300');
-                }
-            });
-        }
 
         // Syllabus Select Change Dynamics
         const syllabusInfo = {
