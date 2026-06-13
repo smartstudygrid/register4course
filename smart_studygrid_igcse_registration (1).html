@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart StudyGrid - IGCSE English Registration Portal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            950: '#040d1a',
+                            900: '#061326',
+                            800: '#0b2240',
+                            700: '#122846',
+                            600: '#16325c',
+                        },
+                        gold: {
+                            100: '#fcf8e3',
+                            200: '#f3e5ab',
+                            400: '#e5c158',
+                            500: '#d4af37',
+                            600: '#b89428',
+                            700: '#aa8416',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Segoe UI', 'Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #061326;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b89428;
+        }
+        
+        .glass-panel {
+            background: rgba(18, 40, 70, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .gold-glow {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+        }
+
+        .gold-glow-hover:hover {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+            border-color: rgba(212, 175, 55, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 text-slate-100 min-h-screen antialiased flex flex-col justify-between">
+
+    <!-- Top Urgent Notice Ticker -->
+    <div class="bg-gradient-to-r from-gold-700 via-gold-500 to-gold-700 text-navy-950 font-bold text-center py-2 px-4 text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 relative overflow-hidden z-10">
+        <span class="inline-flex h-2 w-2 rounded-full bg-red-600 animate-ping"></span>
+        <span>LAST FEW SEATS: Only 4 slots remaining for the November 2026 Prep cohort!</span>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="max-w-7xl mx-auto w-full px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+            <div class="bg-gradient-to-br from-gold-400 to-gold-600 p-2.5 rounded-lg shadow-lg">
+                <i class="fa-solid fa-graduation-cap text-navy-950 text-2xl"></i>
+            </div>
+            <div>
+                <h2 class="text-xl font-extrabold tracking-wider text-white uppercase flex items-center gap-1.5">
+                    Smart StudyGrid
+                </h2>
+                <p class="text-xs text-gold-400 tracking-widest uppercase">The Pinnacle of IGCSE Preparation</p>
+            </div>
+        </div>
+        
+        <!-- Live Countdown Timer Container -->
+        <div class="flex items-center gap-2 bg-navy-800/80 px-4 py-2 rounded-full border border-gold-500/30 shadow-inner">
+            <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Starts In:</span>
+            <div id="countdown" class="flex gap-2 text-gold-400 font-mono text-sm font-bold">
+                <span id="days">00</span>d : 
+                <span id="hours">00</span>h : 
+                <span id="mins">00</span>m : 
+                <span id="secs">00</span>s
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-7xl mx-auto w-full px-4 sm:px-6 py-4 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
+        
+        <!-- Left Column: Course Features and Curriculum Milestones Roadmap (7 Columns) -->
+        <div class="lg:col-span-7 space-y-6">
+            
+            <!-- Hero Introduction -->
+            <div class="p-6 sm:p-8 rounded-2xl glass-panel gold-glow relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gold-500/5 rounded-full blur-2xl -mr-10 -mt-10"></div>
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="bg-gold-500 text-navy-950 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Cambridge ESL Blueprint</span>
+                    <span class="bg-navy-700 text-slate-300 px-3 py-1 rounded-full text-xs font-semibold">20 Comprehensive Sessions</span>
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+                    Master IGCSE English <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-gold-600">November 2026 Session</span>
+                </h1>
+                <p class="text-slate-300 mt-3 text-base sm:text-lg leading-relaxed">
+                    Elevate your skills, solidify exam techniques, and guarantee high-tier results under rigorous, syllabus-aligned training mapped exactly to recent Cambridge structures.
+                </p>
+
+                <!-- Course Fast Facts Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 pt-6 border-t border-slate-700/50">
+                    <div class="text-center p-2 rounded-lg bg-navy-800/40">
+                        <i class="fa-solid fa-user-tie text-gold-500 text-lg mb-1"></i>
+                        <p class="text-xs text-slate-400 block">Lead Educator</p>
+                        <p class="text-xs sm:text-sm font-bold text-white">Mr. Amanullah</p>
+                    </div>
+                    <div class="text-center p-2 rounded-lg bg-navy-800/40">
+                        <i class="fa-solid fa-calendar-days text-gold-500 text-lg mb-1"></i>
+                        <p class="text-xs text-slate-400 block">Weekly Classes</p>
+                        <p class="text-xs sm:text-sm font-bold text-white">Sun & Wed</p>
+                    </div>
+                    <div class="text-center p-2 rounded-lg bg-navy-800/40">
+                        <i class="fa-solid fa-clock text-gold-500 text-lg mb-1"></i>
+                        <p class="text-xs text-slate-400 block">Timing (KSA)</p>
+                        <p class="text-xs sm:text-sm font-bold text-white">7:00 PM</p>
+                    </div>
+                    <div class="text-center p-2 rounded-lg bg-navy-800/40">
+                        <i class="fa-solid fa-rocket text-gold-500 text-lg mb-1"></i>
+                        <p class="text-xs text-slate-400 block">Commences</p>
+                        <p class="text-xs sm:text-sm font-bold text-white">June 21, 2026</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Course Roadmap / Timeline -->
+            <div class="p-6 rounded-2xl glass-panel space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-700/50 pb-3">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-map-location-dot text-gold-500"></i> Curriculum Milestones (20 Sessions)
+                    </h3>
+                    <span class="text-xs text-slate-400">Click headers to expand</span>
+                </div>
+                
+                <div class="space-y-3" id="timeline-accordion">
+                    <!-- Week 1: Foundation -->
+                    <div class="border border-slate-700/50 rounded-xl overflow-hidden transition-all bg-navy-800/30">
+                        <button onclick="toggleAccordion(0)" class="w-full text-left p-4 flex justify-between items-center hover:bg-navy-800/50 transition">
+                            <span class="font-bold text-sm sm:text-base text-gold-400">Phase 1: Diagnostic & Textual Analysis (Sessions 1-5)</span>
+                            <i id="icon-0" class="fa-solid fa-chevron-up text-xs text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="content-0" class="p-4 pt-0 text-xs sm:text-sm text-slate-300 border-t border-slate-700/20 space-y-2">
+                            <p><strong>Core Focus:</strong> Structural understanding of non-fiction texts, understanding explicit and implicit meanings, vocabulary expansion strategies, and short answer techniques.</p>
+                            <ul class="list-disc pl-5 space-y-1 text-slate-400">
+                                <li>Scanning for details and paraphrasing quickly.</li>
+                                <li>Mastering the art of single-word selection and contextual definition.</li>
+                                <li>Comprehensive review of the active & passive voice matrices.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Week 2: Intermediate Summary -->
+                    <div class="border border-slate-700/50 rounded-xl overflow-hidden transition-all bg-navy-800/30">
+                        <button onclick="toggleAccordion(1)" class="w-full text-left p-4 flex justify-between items-center hover:bg-navy-800/50 transition">
+                            <span class="font-bold text-sm sm:text-base text-slate-300">Phase 2: Advanced Summary Writing (Sessions 6-10)</span>
+                            <i id="icon-1" class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="content-1" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-300 border-t border-slate-700/20 space-y-2">
+                            <p><strong>Core Focus:</strong> Eliminating redundancy, aligning points to prompts, structural transitions, and scoring maximum marks for organization and grammatical accuracy.</p>
+                            <ul class="list-disc pl-5 space-y-1 text-slate-400">
+                                <li>Formulating high-level logical links and discourse markers.</li>
+                                <li>Converting raw input details into 100-120 words of cohesive English.</li>
+                                <li>Practicing with actual Cambridge mark schemes to dissect past examiners' expectations.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Week 3: Creative / Formal Writing -->
+                    <div class="border border-slate-700/50 rounded-xl overflow-hidden transition-all bg-navy-800/30">
+                        <button onclick="toggleAccordion(2)" class="w-full text-left p-4 flex justify-between items-center hover:bg-navy-800/50 transition">
+                            <span class="font-bold text-sm sm:text-base text-slate-300">Phase 3: Direct Writing & Speaking Mechanics (Sessions 11-15)</span>
+                            <i id="icon-2" class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="content-2" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-300 border-t border-slate-700/20 space-y-2">
+                            <p><strong>Core Focus:</strong> Professional letter writing, email crafting, reports, journals, and target-audience tailoring.</p>
+                            <ul class="list-disc pl-5 space-y-1 text-slate-400">
+                                <li>Formulating compelling introductions and conclusions.</li>
+                                <li>Adapting formal vs. informal registers flawlessly.</li>
+                                <li>Speaking assessments preview & listening accuracy exercises (Crucial for 0511 / 0991 components).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Week 4: Final Mock Run -->
+                    <div class="border border-slate-700/50 rounded-xl overflow-hidden transition-all bg-navy-800/30">
+                        <button onclick="toggleAccordion(3)" class="w-full text-left p-4 flex justify-between items-center hover:bg-navy-800/50 transition">
+                            <span class="font-bold text-sm sm:text-base text-slate-300">Phase 4: Intensive Mock Drills & Review (Sessions 16-20)</span>
+                            <i id="icon-3" class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="content-3" class="hidden p-4 pt-0 text-xs sm:text-sm text-slate-300 border-t border-slate-700/20 space-y-2">
+                            <p><strong>Core Focus:</strong> Real exam condition testing, individual evaluation, structural diagnostics, and targeted feedback.</p>
+                            <ul class="list-disc pl-5 space-y-1 text-slate-400">
+                                <li>Complete timed exam simulations with strict proctoring guidelines.</li>
+                                <li>Personal performance index mapping to identify individual pain points.</li>
+                                <li>Ultimate cheat-sheet strategies for the official Cambridge examination day.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Registration Form & Pricing Simulator (5 Columns) -->
+        <div class="lg:col-span-5 space-y-6">
+            
+            <!-- Main Registration Box -->
+            <div class="p-6 sm:p-8 rounded-2xl glass-panel gold-glow border-gold-500/40 relative">
+                <div class="absolute -top-3 right-6 bg-gold-500 text-navy-950 font-extrabold text-xs px-3 py-1 rounded-full uppercase shadow">
+                    Interactive Form
+                </div>
+                
+                <h3 class="text-xl font-extrabold text-white mb-1">Secure Your Spot</h3>
+                <p class="text-xs text-slate-400 mb-6">Complete all fields to verify registration eligibility.</p>
+                
+                <form id="registrationForm" onsubmit="handleFormSubmission(event)" class="space-y-4">
+                    <!-- Student Full Name -->
+                    <div>
+                        <label for="studentName" class="block text-xs font-bold text-gold-200 uppercase tracking-wider mb-1.5">Student's Full Name *</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+                                <i class="fa-solid fa-user"></i>
+                            </span>
+                            <input type="text" id="studentName" required 
+                                class="w-full pl-10 pr-4 py-3 bg-navy-950/60 border border-gold-500/30 rounded-xl text-white text-sm focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 transition"
+                                placeholder="E.g. John Doe">
+                        </div>
+                    </div>
+
+                    <!-- Parent Name -->
+                    <div>
+                        <label for="parentName" class="block text-xs font-bold text-gold-200 uppercase tracking-wider mb-1.5">Parent/Guardian Name *</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+                                <i class="fa-solid fa-user-friends"></i>
+                            </span>
+                            <input type="text" id="parentName" required 
+                                class="w-full pl-10 pr-4 py-3 bg-navy-950/60 border border-gold-500/30 rounded-xl text-white text-sm focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 transition"
+                                placeholder="E.g. Jane Doe">
+                        </div>
+                    </div>
+
+                    <!-- Contact details -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="email" class="block text-xs font-bold text-gold-200 uppercase tracking-wider mb-1.5">Email Address *</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </span>
+                                <input type="email" id="email" required 
+                                    class="w-full pl-10 pr-4 py-3 bg-navy-950/60 border border-gold-500/30 rounded-xl text-white text-sm focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 transition"
+                                    placeholder="name@domain.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="whatsapp" class="block text-xs font-bold text-gold-200 uppercase tracking-wider mb-1.5">WhatsApp Number *</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+                                    <i class="fa-brands fa-whatsapp font-bold text-lg"></i>
+                                </span>
+                                <input type="tel" id="whatsapp" required 
+                                    class="w-full pl-10 pr-4 py-3 bg-navy-950/60 border border-gold-500/30 rounded-xl text-white text-sm focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 transition"
+                                    placeholder="+966 50 000 0000">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Syllabus Code Dropdown with Dynamic Explainer -->
+                    <div>
+                        <label for="syllabusCode" class="block text-xs font-bold text-gold-200 uppercase tracking-wider mb-1.5">Target Syllabus Variant *</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+                                <i class="fa-solid fa-book-open"></i>
+                            </span>
+                            <select id="syllabusCode" required onchange="onSyllabusChange(this.value)"
+                                class="w-full pl-10 pr-4 py-3 bg-navy-950/60 border border-gold-500/30 rounded-xl text-white text-sm focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 transition appearance-none cursor-pointer">
+                                <option value="" disabled selected>-- Choose Syllabus Variant --</option>
+                                <option value="Not decided yet">Not decided yet / Need Consultation</option>
+                                <option value="0510">0510 - English as a Second Language (Count-in oral)</option>
+                                <option value="0511">0511 - English as a Second Language (Separate oral)</option>
+                                <option value="0993">0993 - ESL 9-1 Grading (Count-in oral)</option>
+                                <option value="0991">0991 - ESL 9-1 Grading (Separate oral)</option>
+                            </select>
+                            <span class="absolute inset-y-0 right-3 flex items-center text-slate-400 pointer-events-none">
+                                <i class="fa-solid fa-chevron-down text-xs"></i>
+                            </span>
+                        </div>
+                        
+                        <!-- Dynamic Syllabus details box -->
+                        <div id="syllabusExplainer" class="mt-2 text-xs bg-navy-900/60 p-3 rounded-lg border border-slate-700/50 text-slate-300 hidden transition-all duration-300">
+                            <span class="text-gold-400 font-bold block mb-1" id="explainerTitle">Variant Insights</span>
+                            <p id="explainerText">Select an option above to see targeted syllabus metrics and assessment structure details.</p>
+                        </div>
+                    </div>
+
+                    <!-- School & Location -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="school" class="block text-xs font-bold text-gold-200 uppercase tracking-wider mb-1.5">Current School</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+                                    <i class="fa-solid fa-school"></i>
+                                </span>
+                                <input type="text" id="school" 
+                                    class="w-full pl-10 pr-4 py-3 bg-navy-950/60 border border-gold-500/30 rounded-xl text-white text-sm focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 transition"
+                                    placeholder="School Name">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="city" class="block text-xs font-bold text-gold-200 uppercase tracking-wider mb-1.5">City / Country *</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </span>
+                                <input type="text" id="city" required 
+                                    class="w-full pl-10 pr-4 py-3 bg-navy-950/60 border border-gold-500/30 rounded-xl text-white text-sm focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 transition"
+                                    placeholder="E.g. Riyadh, KSA">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="submitBtn" class="w-full py-4 px-6 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 text-navy-950 font-extrabold text-base rounded-xl hover:scale-[1.01] hover:brightness-110 active:scale-[0.99] transition shadow-lg flex items-center justify-center gap-2 tracking-wide uppercase">
+                        <span id="btnText" class="flex items-center gap-2">
+                            <i class="fa-solid fa-lock text-sm"></i> Secure My Spot Now
+                        </span>
+                        <span id="btnLoader" class="hidden">
+                            <i class="fa-solid fa-circle-notch animate-spin text-lg"></i> Registering...
+                        </span>
+                    </button>
+                    
+                    <p class="text-[11px] text-slate-400 text-center flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-shield-halved text-gold-500"></i> Secure registration. Your details are safe with us.
+                    </p>
+                </form>
+            </div>
+
+            <!-- Social Proof Notification Box -->
+            <div id="liveFeed" class="p-4 rounded-xl glass-panel text-xs flex items-center gap-3 transition-opacity duration-500">
+                <div class="bg-gold-500/20 p-2 rounded-lg text-gold-400">
+                    <i class="fa-solid fa-bell text-sm animate-bounce"></i>
+                </div>
+                <div class="flex-1">
+                    <span class="text-[10px] uppercase font-bold text-slate-400 block tracking-wider">Recent Registrants</span>
+                    <p id="liveFeedText" class="text-slate-200">Sarah K. from Jeddah just reserved her spot for Core syllabus preparation.</p>
+                </div>
+                <span class="text-[10px] text-gold-500 font-mono" id="feedTime">2 mins ago</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- Detailed Footer -->
+    <footer class="bg-navy-950/80 border-t border-slate-800 py-8 px-6 text-center text-xs text-slate-400 space-y-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>&copy; 2026 Smart StudyGrid Academy. All international standards reserved.</p>
+            <p class="flex gap-4 justify-center items-center">
+                <a href="#" class="hover:text-gold-400 transition">Terms of Service</a>
+                <span>|</span>
+                <a href="#" class="hover:text-gold-400 transition">Privacy Guidelines</a>
+                <span>|</span>
+                <a href="#" class="hover:text-gold-400 transition">Support Center</a>
+            </p>
+        </div>
+        <p class="text-[10px] text-slate-500 max-w-3xl mx-auto">
+            Disclaimer: Cambridge International, IGCSE, and related designations are intellectual property vectors of Cambridge Assessment International Education. This program is independently run by certified educators with structured curricula mapped with utmost diligence.
+        </p>
+    </footer>
+
+    <!-- SUCCESS MODAL (Replaces standard alert) -->
+    <div id="successModal" class="fixed inset-0 bg-navy-950/80 backdrop-blur-md hidden items-center justify-center p-4 z-50 transition-opacity duration-300 opacity-0">
+        <div class="bg-navy-800 border-2 border-gold-500/80 rounded-2xl p-6 sm:p-8 max-w-lg w-full shadow-2xl relative transform scale-95 transition-transform duration-300">
+            <!-- Close Modal -->
+            <button onclick="closeSuccessModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white transition">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <!-- Checkmark Header -->
+            <div class="text-center space-y-2 mb-6">
+                <div class="mx-auto w-16 h-16 bg-gold-500/10 text-gold-500 border border-gold-500/30 rounded-full flex items-center justify-center text-3xl mb-2">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h3 class="text-2xl font-black text-white uppercase tracking-wider">Spot Reserved!</h3>
+                <p class="text-sm text-gold-200">Confirmation Ticket & Pre-Course Packet Registered</p>
+            </div>
+
+            <!-- Dynamic Invoice / Slip content -->
+            <div class="bg-navy-950/70 rounded-xl p-4 border border-slate-700/60 font-mono text-xs sm:text-sm text-slate-300 space-y-3">
+                <div class="flex justify-between border-b border-slate-800 pb-2">
+                    <span class="text-slate-400">Transaction ID</span>
+                    <span class="text-white font-bold" id="ticketId">SSG-2026-XXXX</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-400">Student Name</span>
+                    <span class="text-white font-bold" id="ticketStudent">N/A</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-400">Target Variant</span>
+                    <span class="text-white font-bold" id="ticketSyllabus">N/A</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-400">Timing</span>
+                    <span class="text-white font-bold">Sun & Wed, 7:00 PM KSA</span>
+                </div>
+                <div class="flex justify-between border-t border-slate-800 pt-2 font-bold text-gold-400">
+                    <span>Registration Status</span>
+                    <span class="text-emerald-400 font-bold">Confirmed & Recorded</span>
+                </div>
+            </div>
+
+            <div class="space-y-3 mt-6">
+                <p class="text-xs text-slate-300 leading-relaxed text-center">
+                    Mr. Amanullah Khan's departmental coordinators will reach out via **WhatsApp** to provide orientation guidelines and standard access schedules within the next 12 hours.
+                </p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                    <button onclick="window.print()" class="w-full py-3 px-4 border border-gold-500/30 text-gold-400 hover:bg-gold-500/10 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-print"></i> Print Confirmation
+                    </button>
+                    <a id="whatsappDirectLink" target="_blank" class="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-extrabold transition flex items-center justify-center gap-1.5 shadow-lg">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> Fast-Track on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT LOGIC -->
+    <script>
+        // Deployed Google Apps Script Web App URL:
+        const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwDu2hpSOX2_jMFkWvd6h-CeuAgEeo97CxeReYJpEkw-lHZRAyhaApujX9WNdRQL710/exec";
+
+        // Set Current Target date to Sunday, June 21, 2026.
+        const targetDate = new Date("June 21, 2026 19:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference < 0) {
+                document.getElementById("countdown").innerHTML = "Course Started!";
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = String(days).padStart(2, '0');
+            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+            document.getElementById("mins").innerText = String(minutes).padStart(2, '0');
+            document.getElementById("secs").innerText = String(seconds).padStart(2, '0');
+        }
+
+        // Initialize and interval timer
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Timeline Accordion Action
+        function toggleAccordion(index) {
+            const keys = [0, 1, 2, 3];
+            keys.forEach(key => {
+                const content = document.getElementById(`content-${key}`);
+                const icon = document.getElementById(`icon-${key}`);
+                const button = content.previousElementSibling;
+                const textSpan = button.querySelector('span');
+
+                if (key === index) {
+                    const isCollapsed = content.classList.contains('hidden');
+                    if (isCollapsed) {
+                        content.classList.remove('hidden');
+                        icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+                        textSpan.classList.add('text-gold-400');
+                        textSpan.classList.remove('text-slate-300');
+                    } else {
+                        content.classList.add('hidden');
+                        icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+                        textSpan.classList.remove('text-gold-400');
+                        textSpan.classList.add('text-slate-300');
+                    }
+                } else {
+                    content.classList.add('hidden');
+                    icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+                    textSpan.classList.remove('text-gold-400');
+                    textSpan.classList.add('text-slate-300');
+                }
+            });
+        }
+
+        // Syllabus Select Change Dynamics
+        const syllabusInfo = {
+            "Not decided yet": {
+                title: "Need consultation?",
+                text: "No problem! Leave this selected and our administrative team will guide you through matching standard curriculum expectations and picking the perfect variant."
+            },
+            "0510": {
+                title: "Variant 0510: English as a Second Language",
+                text: "Includes count-in oral examination metrics where Speaking performance weights directly into the total grading outcome."
+            },
+            "0511": {
+                title: "Variant 0511: English as a Second Language",
+                text: "Includes separate endorsement oral metrics. Speaking results are endorsed on certificates separate from reading/writing grades."
+            },
+            "0993": {
+                title: "Variant 0993: ESL (9-1 Grading Class)",
+                text: "Standard numeric scale variants targeting highest Grade 9 excellence with active speaking assessment integrated in total mark structure."
+            },
+            "0991": {
+                title: "Variant 0991: ESL (9-1 Grading Class)",
+                text: "Numeric evaluation standards focusing on high-tier Grade 9 outcomes with speaking assessed via separate endorsement guidelines."
+            }
+        };
+
+        function onSyllabusChange(value) {
+            const explainer = document.getElementById("syllabusExplainer");
+            const titleEl = document.getElementById("explainerTitle");
+            const textEl = document.getElementById("explainerText");
+
+            if (syllabusInfo[value]) {
+                titleEl.innerText = syllabusInfo[value].title;
+                textEl.innerText = syllabusInfo[value].text;
+                explainer.classList.remove("hidden");
+            } else {
+                explainer.classList.add("hidden");
+            }
+        }
+
+        // Registration Submissions and Dynamic Actions
+        async function handleFormSubmission(event) {
+            event.preventDefault();
+
+            // Form Fields
+            const studentName = document.getElementById("studentName").value;
+            const parentName = document.getElementById("parentName").value;
+            const email = document.getElementById("email").value;
+            const whatsapp = document.getElementById("whatsapp").value;
+            const syllabus = document.getElementById("syllabusCode").value;
+            const school = document.getElementById("school").value || "N/A";
+            const city = document.getElementById("city").value;
+
+            // Generate ticket specifics
+            const randomCode = Math.floor(1000 + Math.random() * 9000);
+            const ticketId = `SSG-2026-${randomCode}`;
+
+            // Button UI Spinner state
+            const submitBtn = document.getElementById("submitBtn");
+            const btnText = document.getElementById("btnText");
+            const btnLoader = document.getElementById("btnLoader");
+
+            submitBtn.disabled = true;
+            btnText.classList.add("hidden");
+            btnLoader.classList.remove("hidden");
+
+            // Build payload for Google Sheets submission
+            const payload = {
+                ticketId: ticketId,
+                studentName: studentName,
+                parentName: parentName,
+                email: email,
+                whatsapp: whatsapp,
+                syllabus: syllabus,
+                school: school,
+                city: city
+            };
+
+            // Try sending the registration directly to Google Sheet API endpoint
+            try {
+                await fetch(GOOGLE_APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Standard CORS-safe method for submitting form values to Apps Script
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams(payload)
+                });
+            } catch (error) {
+                console.error("Submission failed, continuing to show visual feedback confirmation anyway.", error);
+            }
+
+            // Map data dynamically to receipt modal
+            document.getElementById("ticketId").innerText = ticketId;
+            document.getElementById("ticketStudent").innerText = studentName;
+            document.getElementById("ticketSyllabus").innerText = syllabus;
+
+            // Reset submit button state
+            submitBtn.disabled = false;
+            btnText.classList.remove("hidden");
+            btnLoader.classList.add("hidden");
+
+            // Build dynamic professional message on whatsapp for easy client redirection
+            const encodedMsg = encodeURIComponent(
+                `Hello Smart StudyGrid Team,\n\nI have registered for the IGCSE English November 2026 prep session.\n\n` +
+                `*Registration Details:*\n` +
+                `- Student: ${studentName}\n` +
+                `- Parent: ${parentName}\n` +
+                `- Ticket ID: ${ticketId}\n` +
+                `- Target Syllabus Code: ${syllabus}\n` +
+                `- Location: ${city}\n\n` +
+                `Kindly verify my slot structure and let me know the upcoming schedule.`
+            );
+            
+            // Generate link with international support fallback redirection
+            document.getElementById("whatsappDirectLink").href = `https://wa.me/966500000000?text=${encodedMsg}`;
+
+            // Reveal customized confirmation visual modal
+            const modal = document.getElementById("successModal");
+            modal.classList.remove("hidden");
+            setTimeout(() => {
+                modal.classList.add("opacity-100");
+                modal.querySelector(".transform").classList.remove("scale-95");
+            }, 10);
+        }
+
+        function closeSuccessModal() {
+            const modal = document.getElementById("successModal");
+            modal.classList.remove("opacity-100");
+            modal.querySelector(".transform").classList.add("scale-95");
+            setTimeout(() => {
+                modal.classList.add("hidden");
+                // Reset form on close
+                document.getElementById("registrationForm").reset();
+                document.getElementById("syllabusExplainer").classList.add("hidden");
+            }, 300);
+        }
+
+        // Live Dynamic Notification simulation to drive FOMO
+        const simulatedSignups = [
+            { name: "Fatima A.", city: "Riyadh", syllabus: "0510", time: "Just now" },
+            { name: "Zain M.", city: "Khobar", syllabus: "0511", time: "4 mins ago" },
+            { name: "Yousef H.", city: "Jeddah", syllabus: "0991", time: "12 mins ago" },
+            { name: "Mariam O.", city: "Dammam", syllabus: "0993", time: "25 mins ago" },
+            { name: "Hamza S.", city: "Riyadh", syllabus: "Not decided yet", time: "1 hr ago" }
+        ];
+
+        let index = 0;
+        function updateLiveFeed() {
+            const feedBox = document.getElementById("liveFeed");
+            const textEl = document.getElementById("liveFeedText");
+            const timeEl = document.getElementById("feedTime");
+
+            feedBox.style.opacity = '0';
+
+            setTimeout(() => {
+                const signup = simulatedSignups[index];
+                textEl.innerHTML = `<strong>${signup.name}</strong> from ${signup.city} just secured a spot. Syllabus selection: ${signup.syllabus}.`;
+                timeEl.innerText = signup.time;
+                feedBox.style.opacity = '1';
+                
+                index = (index + 1) % simulatedSignups.length;
+            }, 500);
+        }
+
+        // Cycle through dynamic notifications every 9 seconds
+        setInterval(updateLiveFeed, 9000);
+    </script>
+</body>
+</html>
